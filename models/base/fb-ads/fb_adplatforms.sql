@@ -40,7 +40,7 @@ with fb_adplatforms as (
                 'inline_link_clicks',
                 '_sdc_sequence',
                 '_sdc_batched_at']) }},
-                _28d_click,
+                value._28d_click,
                from {{ most_recent_record(
                         relation='`' ~ target.project ~ '.fb_ads_' ~ account ~ '.ads_insights_platform_and_device`',
                         pk_fields=['ad_id', 'adset_id', 'campaign_id', 'date_start', 'publisher_platform', 'platform_position', 'impression_device']

@@ -39,7 +39,7 @@ with fb_adplatforms as (
 , inline_link_clicks
 , _sdc_sequence
 , _sdc_batched_at,
-                _28d_click,
+                value._28d_click,
                from 
 
 

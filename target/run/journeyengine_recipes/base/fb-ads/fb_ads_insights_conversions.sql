@@ -25,8 +25,8 @@ with fb_ads_insights_conversions as (
 , ad_id
 , account_name
 , _sdc_sequence,
-			action_type,
-			_28d_click conversions,
+			value.action_type,
+			value._28d_click conversions,
 			null as revenue
 			FROM `journeyengine-recipes.fb_ads_quantic.ads_insights`
 			cross join unnest(actions)
@@ -44,9 +44,9 @@ with fb_ads_insights_conversions as (
 , ad_id
 , account_name
 , _sdc_sequence,
-			action_type,
+			value.action_type,
 			null as conversions,
-			_28d_click as revenue
+			value._28d_click as revenue
 			FROM `journeyengine-recipes.fb_ads_quantic.ads_insights`
 			cross join unnest(actions)
 			
