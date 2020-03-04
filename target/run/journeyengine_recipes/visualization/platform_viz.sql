@@ -18,7 +18,7 @@ ifnull(conversions, 0) Conversions,
 ifnull(sessions, 0) Sessions,
 ifnull(goal_completions, 0) GoalCompletions,
 ifnull(mqls, 0) MQLs,
-ifnull(subscribers, 0) Subscribers,
+ifnull(sqls, 0) SQLs,
 ifnull(other, 0) OtherConversions,
 ifnull(excluded, 0) ExcludedConversions,
 FROM `journeyengine-recipes`.`agency_data_pipeline`.`platform_index`

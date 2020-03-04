@@ -18,7 +18,7 @@ conversions,
 sessions,
 goal_completions,
 mqls,
-subscribers,
+sqls,
 other,
 excluded,
 FROM (
@@ -35,7 +35,7 @@ FROM (
     sessions,
     goal_completions,
     mqls,
-    subscribers,
+    sqls,
     other,
     excluded,
     FROM `journeyengine-recipes`.`agency_data_pipeline`.`platform_by_month`

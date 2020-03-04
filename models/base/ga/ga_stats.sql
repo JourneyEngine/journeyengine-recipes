@@ -11,7 +11,7 @@ url,
 sum(sessions) sessions,
 sum(goal_completions) goal_completions,
 sum(mqls) mqls,
-sum(subscribers) subscribers,
+sum(sqls) sqls,
 sum(other) other,
 sum(excluded) excluded
 FROM {{ ref('ga_proc') }} a

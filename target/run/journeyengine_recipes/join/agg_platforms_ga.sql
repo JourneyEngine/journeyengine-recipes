@@ -9,7 +9,7 @@
 
 	select 
 		date, account, site, channel, platform, url,
-		sessions, goal_completions, mqls, subscribers, other, excluded,
+		sessions, goal_completions, mqls, sqls, other, excluded,
 		null as cost, null as impressions, null as clicks, null as conversions
 	from `journeyengine-recipes`.`agency_data_pipeline`.`ga_stats`
 
@@ -19,7 +19,7 @@ platforms as (
 
 	select 
 		date, account, site, channel, platform, url,
-		null as sessions, null as goal_completions, null as mqls, null as subscribers, null as other, null as excluded,
+		null as sessions, null as goal_completions, null as mqls, null as sqls, null as other, null as excluded,
 		cost, impressions, clicks, conversions
 	from `journeyengine-recipes`.`agency_data_pipeline`.`agg_platforms_site`
 
@@ -39,7 +39,7 @@ SELECT
 	sum(sessions) sessions,
 	sum(goal_completions) goal_completions,
 	sum(mqls) mqls,
-	sum(subscribers) subscribers,
+	sum(sqls) sqls,
 	sum(other) other,
 	sum(excluded) excluded
 FROM

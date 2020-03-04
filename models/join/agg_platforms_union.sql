@@ -40,3 +40,18 @@ clicks,
 conversions
 FROM 
 {{ref('gsc_stats')}}
+
+UNION ALL
+
+SELECT 
+date, 
+account, 
+'Paid' as channel,
+platform,
+null as url,
+spend cost,
+impressions,
+clicks,
+conversions
+FROM 
+{{ref('linkedin_adplatforms')}}

@@ -40,3 +40,18 @@ clicks,
 conversions
 FROM 
 `journeyengine-recipes`.`agency_data_pipeline`.`gsc_stats`
+
+UNION ALL
+
+SELECT 
+date, 
+account, 
+'Paid' as channel,
+platform,
+null as url,
+spend cost,
+impressions,
+clicks,
+conversions
+FROM 
+`journeyengine-recipes`.`agency_data_pipeline`.`linkedin_adplatforms`

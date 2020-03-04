@@ -29,17 +29,45 @@ with ga_report as (
 			sessions,
 			goalcompletionsall goal_completions,
 			## goal completion columns
-							
-				null as mqls,		
 			
-							
-				null as subscribers,		
+				
+					cast(goal19completions as int64) 
+					 
+					 as mqls,  
+				
+			
+			
+				
+					cast(goal8completions as int64) 
+					 +  
+					 
+				
+					cast(goal9completions as int64) 
+					 
+					 as sqls,  
+				
 						
 							
 				null as excluded,		
 					
-							
-				null as other,		
+			
+				
+					cast(goal17completions as int64) 
+					 +  
+					 
+				
+					cast(goal16completions as int64) 
+					 +  
+					 
+				
+					cast(goal18completions as int64) 
+					 +  
+					 
+				
+					cast(goal13completions as int64) 
+					 
+					 as other,  
+				
 						
 			_sdc_sequence,
 			first_value(_sdc_sequence) OVER (PARTITION BY hostname, landingpagepath, date, source, medium ORDER BY _sdc_sequence DESC) lv
@@ -61,7 +89,7 @@ medium,
 sum(sessions) sessions,
 sum(goal_completions) goal_completions,
 sum(mqls) mqls,
-sum(subscribers) subscribers,
+sum(sqls) sqls,
 sum(excluded) excluded,
 sum(other) other
 FROM ga_report

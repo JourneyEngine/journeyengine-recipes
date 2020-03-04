@@ -8,7 +8,7 @@ with ga_report as (
 	    {% for account in accounts %}
 
 	    	{% set leads = get_column_values(table=ref('ga_conversions'), column='goal_name', max_records=50, filter_column='goal_type', filter_value='MQL', filter_column_2='bigquery_name', filter_value_2=account ) %}
-	    	{% set subscribers = get_column_values(table=ref('ga_conversions'), column='goal_name', max_records=50, filter_column='goal_type', filter_value='Subscriber', filter_column_2='bigquery_name', filter_value_2=account ) %}
+	    	{% set sqls = get_column_values(table=ref('ga_conversions'), column='goal_name', max_records=50, filter_column='goal_type', filter_value='SQL', filter_column_2='bigquery_name', filter_value_2=account ) %}
 	    	{% set excluded = get_column_values(table=ref('ga_conversions'), column='goal_name', max_records=50, filter_column='goal_type', filter_value='Exclude', filter_column_2='bigquery_name', filter_value_2=account ) %}
 	    	{% set other = get_column_values(table=ref('ga_conversions'), column='goal_name', max_records=50, filter_column='goal_type', filter_value='Other', filter_column_2='bigquery_name', filter_value_2=account ) %}
 
@@ -31,14 +31,14 @@ with ga_report as (
 			{% else %}				
 				null as mqls,		
 			{% endif %}
-			{% if subscribers != [] %}
-				{% for goal in subscribers %}
+			{% if sqls != [] %}
+				{% for goal in sqls %}
 					cast(goal{{goal}}completions as int64) 
 					{% if not loop.last %} + {% endif %} 
-					{% if loop.last %} as subscribers, {% endif %} 
+					{% if loop.last %} as sqls, {% endif %} 
 				{% endfor %}
 			{% else %}				
-				null as subscribers,		
+				null as sqls,		
 			{% endif %}			
 			{% if excluded != [] %}
 				{% for goal in excluded %}
@@ -78,7 +78,7 @@ medium,
 sum(sessions) sessions,
 sum(goal_completions) goal_completions,
 sum(mqls) mqls,
-sum(subscribers) subscribers,
+sum(sqls) sqls,
 sum(excluded) excluded,
 sum(other) other
 FROM ga_report

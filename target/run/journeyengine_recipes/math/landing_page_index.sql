@@ -22,8 +22,8 @@ goal_completions,
 pct_goal_completions,
 mqls,
 pct_mqls,
-subscribers,
-pct_subscribers,
+sqls,
+pct_sqls,
 other,
 excluded,
 case when pct_sessions > 0 then pct_goal_completions / pct_sessions else null end as conversion_index
@@ -45,8 +45,8 @@ FROM (
     case when total_goal_completions > 0 then goal_completions / total_goal_completions else null end as pct_goal_completions,
     mqls,
     case when total_mqls > 0 then mqls / total_mqls else null end as pct_mqls,
-    subscribers,
-    case when subscribers > 0 then subscribers / total_subscribers else null end as pct_subscribers,
+    sqls,
+    case when total_sqls > 0 then sqls / total_sqls else null end as pct_sqls,
     other,
     excluded
     FROM `journeyengine-recipes`.`agency_data_pipeline`.`landing_page_by_month`

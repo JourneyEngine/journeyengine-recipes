@@ -11,7 +11,7 @@ conversions,
 sessions,
 goal_completions,
 mqls,
-subscribers,
+sqls,
 other,
 excluded,
 FROM (
@@ -28,7 +28,7 @@ FROM (
     sessions,
     goal_completions,
     mqls,
-    subscribers,
+    sqls,
     other,
     excluded,
     FROM {{ ref('platform_by_month')}}
