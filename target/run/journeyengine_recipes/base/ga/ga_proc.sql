@@ -38,11 +38,11 @@ with ga_report as (
 			
 			
 				
-					cast(goal8completions as int64) 
+					cast(goal9completions as int64) 
 					 +  
 					 
 				
-					cast(goal9completions as int64) 
+					cast(goal8completions as int64) 
 					 
 					 as sqls,  
 				
@@ -52,19 +52,19 @@ with ga_report as (
 					
 			
 				
-					cast(goal17completions as int64) 
-					 +  
-					 
-				
-					cast(goal16completions as int64) 
-					 +  
-					 
-				
 					cast(goal18completions as int64) 
 					 +  
 					 
 				
 					cast(goal13completions as int64) 
+					 +  
+					 
+				
+					cast(goal17completions as int64) 
+					 +  
+					 
+				
+					cast(goal16completions as int64) 
 					 
 					 as other,  
 				
